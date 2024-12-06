@@ -1,0 +1,2188 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Session 4 - Compound data types &#8212; My Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'session4/4_compound_datatypes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Matplotlib - Visualization with Python" href="../matplotlib/matplotlib_exercises.html" />
+    <link rel="prev" title="Session 3 - Functions" href="../session3/3_functions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My Jupyter Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    PythonProgramming - Exercises
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../session1/1_simple_datatypes.html">Session 1 - Simple data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session2/2_flowcontrol.html">Session 2 - Flow control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session3/3_functions.html">Session 3 - Functions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Session 4 - Compound data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/matplotlib_exercises.html">Introduction to Matplotlib - Visualization with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/numpy_exercises.html">Introduction to NumPy - Numerical Python</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/session4/4_compound_datatypes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Session 4 - Compound data types</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-slicing">Indexing and slicing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterables-of-iterables">Iterables of iterables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-iterable-comprehensions">Introducing iterable comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">Generators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-a-dictionary-by-values">Sorting a dictionary by values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#increasing-efficiency-of-fibonacci-using-dictionaries">Increasing efficiency of fibonacci using dictionaries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutables-versus-immutables-and-objects">Mutables versus immutables and objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-extension-of-the-above-discussion-to-functions">An extension of the above discussion to functions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define helper function</span>
+<span class="k">def</span> <span class="nf">error_message</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Actual </span><span class="si">{</span><span class="n">actual</span><span class="si">}</span><span class="s1"> != Expected </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="session-4-compound-data-types">
+<h1>Session 4 - Compound data types<a class="headerlink" href="#session-4-compound-data-types" title="Link to this heading">#</a></h1>
+<p>Today we will practice working with sequence data types:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Tuple</span></code> (defined using <code class="docutils literal notranslate"><span class="pre">()</span></code>)</p>
+<ul>
+<li><p>ordered sequence of elements</p></li>
+<li><p>immutable</p></li>
+<li><p>can handle mixed data types</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">List</span></code> (defined uing <code class="docutils literal notranslate"><span class="pre">[]</span></code>)</p>
+<ul>
+<li><p>ordered sequence of elements</p></li>
+<li><p>mutable</p></li>
+<li><p>can handle mixed data types</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Set</span></code> (defined using <code class="docutils literal notranslate"><span class="pre">set()</span></code> if empty, otherwise <code class="docutils literal notranslate"><span class="pre">{}</span></code>)</p>
+<ul>
+<li><p>unordered sequence of unique elements</p></li>
+<li><p>the set itself may be modified, but its elements must be of an immutable type</p></li>
+<li><p>can handle mixed data types</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> (defined using <code class="docutils literal notranslate"><span class="pre">dict()</span></code> or <code class="docutils literal notranslate"><span class="pre">{key:</span> <span class="pre">value}</span></code>)</p>
+<ul>
+<li><p>ordered sequence of key:value pairs (Python3). In Python2 they are unordered</p></li>
+<li><p>mutable</p></li>
+<li><p>values can be any data type</p></li>
+<li><p>keys can be of any immutable type (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">str</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code> - I do not recommend float because the are difficult to compare) and MUST BE unique</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Some important concepts to understand:</strong></p>
+<ul class="simple">
+<li><p>All compound data types are iterables – we can iterate through them (see comment below)</p></li>
+<li><p>Mutable versus immutable objects</p>
+<ul>
+<li><p>mutable: allows you to change their value or data without affect the objects identity</p></li>
+<li><p>immutable: does not allow these kinds of changes</p></li>
+</ul>
+</li>
+<li><p>Each compound data type has various methods (will come back to that in lecture 6) that you can apply on them. <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">extend</span></code> are examples for lists.</p></li>
+</ul>
+<p><strong>Iterable versus iterator in Python:</strong></p>
+<ul class="simple">
+<li><p>An iterable is an object that contains a countable number of values. It is an object that can be iterated upon, meaning that you can traverse through all its elements.</p>
+<ul>
+<li><p>Examples: <code class="docutils literal notranslate"><span class="pre">str,</span> <span class="pre">list,</span> <span class="pre">dict,</span> <span class="pre">set,</span> <span class="pre">tuple</span></code></p></li>
+</ul>
+</li>
+<li><p>An iterator is an object which implements the iterator protocol, which consist of the special methods <code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> and <code class="docutils literal notranslate"><span class="pre">__next__()</span></code></p>
+<ul>
+<li><p>Examples: <code class="docutils literal notranslate"><span class="pre">zip,</span> <span class="pre">enumerate</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run these commands to get information about the object type list and zip</span>
+<span class="c1"># You will see that zip implements iter() and next() whereas a list does not. </span>
+<span class="c1"># You may need to open the full output data in a text editor in order to be able to see it.</span>
+
+<span class="n">help</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="nb">zip</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on class list in module builtins:
+
+class list(object)
+ |  list(iterable=(), /)
+ |  
+ |  Built-in mutable sequence.
+ |  
+ |  If no argument is given, the constructor creates a new empty list.
+ |  The argument must be an iterable if specified.
+ |  
+ |  Methods defined here:
+ |  
+ |  __add__(self, value, /)
+ |      Return self+value.
+ |  
+ |  __contains__(self, key, /)
+ |      Return key in self.
+ |  
+ |  __delitem__(self, key, /)
+ |      Delete self[key].
+ |  
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |  
+ |  __ge__(self, value, /)
+ |      Return self&gt;=value.
+ |  
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |  
+ |  __getitem__(...)
+ |      x.__getitem__(y) &lt;==&gt; x[y]
+ |  
+ |  __gt__(self, value, /)
+ |      Return self&gt;value.
+ |  
+ |  __iadd__(self, value, /)
+ |      Implement self+=value.
+ |  
+ |  __imul__(self, value, /)
+ |      Implement self*=value.
+ |  
+ |  __init__(self, /, *args, **kwargs)
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |  
+ |  __le__(self, value, /)
+ |      Return self&lt;=value.
+ |  
+ |  __len__(self, /)
+ |      Return len(self).
+ |  
+ |  __lt__(self, value, /)
+ |      Return self&lt;value.
+ |  
+ |  __mul__(self, value, /)
+ |      Return self*value.
+ |  
+ |  __ne__(self, value, /)
+ |      Return self!=value.
+ |  
+ |  __repr__(self, /)
+ |      Return repr(self).
+ |  
+ |  __reversed__(self, /)
+ |      Return a reverse iterator over the list.
+ |  
+ |  __rmul__(self, value, /)
+ |      Return value*self.
+ |  
+ |  __setitem__(self, key, value, /)
+ |      Set self[key] to value.
+ |  
+ |  __sizeof__(self, /)
+ |      Return the size of the list in memory, in bytes.
+ |  
+ |  append(self, object, /)
+ |      Append object to the end of the list.
+ |  
+ |  clear(self, /)
+ |      Remove all items from list.
+ |  
+ |  copy(self, /)
+ |      Return a shallow copy of the list.
+ |  
+ |  count(self, value, /)
+ |      Return number of occurrences of value.
+ |  
+ |  extend(self, iterable, /)
+ |      Extend list by appending elements from the iterable.
+ |  
+ |  index(self, value, start=0, stop=9223372036854775807, /)
+ |      Return first index of value.
+ |      
+ |      Raises ValueError if the value is not present.
+ |  
+ |  insert(self, index, object, /)
+ |      Insert object before index.
+ |  
+ |  pop(self, index=-1, /)
+ |      Remove and return item at index (default last).
+ |      
+ |      Raises IndexError if list is empty or index is out of range.
+ |  
+ |  remove(self, value, /)
+ |      Remove first occurrence of value.
+ |      
+ |      Raises ValueError if the value is not present.
+ |  
+ |  reverse(self, /)
+ |      Reverse *IN PLACE*.
+ |  
+ |  sort(self, /, *, key=None, reverse=False)
+ |      Sort the list in ascending order and return None.
+ |      
+ |      The sort is in-place (i.e. the list itself is modified) and stable (i.e. the
+ |      order of two equal elements is maintained).
+ |      
+ |      If a key function is given, apply it once to each list item and sort them,
+ |      ascending or descending, according to their function values.
+ |      
+ |      The reverse flag can be set to sort in descending order.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Class methods defined here:
+ |  
+ |  __class_getitem__(...) from builtins.type
+ |      See PEP 585
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |  
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |  
+ |  __hash__ = None
+
+Help on class zip in module builtins:
+
+class zip(object)
+ |  zip(*iterables) --&gt; A zip object yielding tuples until an input is exhausted.
+ |  
+ |     &gt;&gt;&gt; list(zip(&#39;abcdefg&#39;, range(3), range(4)))
+ |     [(&#39;a&#39;, 0, 0), (&#39;b&#39;, 1, 1), (&#39;c&#39;, 2, 2)]
+ |  
+ |  The zip object yields n-length tuples, where n is the number of iterables
+ |  passed as positional arguments to zip().  The i-th element in every tuple
+ |  comes from the i-th iterable argument to zip().  This continues until the
+ |  shortest argument is exhausted.
+ |  
+ |  Methods defined here:
+ |  
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |  
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |  
+ |  __next__(self, /)
+ |      Implement next(self).
+ |  
+ |  __reduce__(...)
+ |      Return state information for pickling.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |  
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Examples from lecture 4. </span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="c1"># &quot;return&quot; in a function always returns an object. When there are multiple values in the return statement, it returns a tuple </span>
+
+<span class="k">def</span> <span class="nf">sum_and_difference</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span><span class="o">-&gt;</span><span class="nb">tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the sum and difference between two numbers</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (float | int): first number to use in calculation</span>
+<span class="sd">        y (float | int): second number to use in calculation</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple[float | int, float | int]: tuple of sum and difference</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">,</span> <span class="n">difference</span>
+
+<span class="n">sum_and_diff</span> <span class="o">=</span> <span class="n">sum_and_difference</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_and_diff</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">sum_and_diff</span><span class="p">))</span>
+
+<span class="c1"># Here we immediately unpack the tuple</span>
+<span class="nb">sum</span><span class="p">,</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">sum_and_difference</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="nb">sum</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5, 3) &lt;class &#39;tuple&#39;&gt;
+5 3 &lt;class &#39;int&#39;&gt; &lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">sum_and_diff</span><span class="p">)</span> <span class="o">==</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">sum_and_diff</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">sum_and_diff</span> <span class="o">==</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">error_message</span><span class="p">(</span><span class="n">sum_and_diff</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTE RERUN THESE CELLS TO NOT CONFUSE YOURSELF</span>
+<span class="c1"># Write a &#39;for&#39; loop using &#39;range&#39; to generate a list of numbers from 1 to 10 called alist.</span>
+
+<span class="n">alist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">alist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">alist</span><span class="p">),</span> <span class="nb">list</span><span class="p">)</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+<span class="k">assert</span> <span class="n">alist</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alist</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># NOTE RERUN THESE CELLS TO NOT CONFUSE YOURSELF</span>
+<span class="c1"># Oh, we forgot to add the following numbers (see below) to the list. </span>
+<span class="c1"># Let us fix that with the built-in &#39;extend&#39; method</span>
+
+<span class="n">forgot_start</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">forgot_end</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+
+<span class="n">alist</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">forgot_end</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">forgot_start</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+<span class="n">forgot_start</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+<span class="n">updated_list</span> <span class="o">=</span> <span class="n">forgot_start</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Updated list: &#39;</span><span class="p">,</span> <span class="n">updated_list</span><span class="p">)</span>
+
+<span class="c1"># Above we assigned the updated_list to forgot_start.</span>
+<span class="c1"># Let us check what that means address-wise</span>
+ 
+<span class="nb">print</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">updated_list</span><span class="p">)),</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">forgot_start</span><span class="p">)))</span>
+
+<span class="c1"># What happens to the elements of forgot_start if we change one of the elements in updated_list?</span>
+<span class="n">updated_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Updated list with new first element: &#39;</span><span class="p">,</span> <span class="n">updated_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1, 0] [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+Updated list:  [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+0x7f464c129e40 0x7f464c129e40
+Updated list with new first element:  [-2, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">alist</span><span class="p">),</span> <span class="nb">list</span><span class="p">)</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">)]</span>
+<span class="k">assert</span> <span class="n">alist</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alist</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="indexing-and-slicing">
+<h2>Indexing and slicing<a class="headerlink" href="#indexing-and-slicing" title="Link to this heading">#</a></h2>
+<p>You can use indexing to access certain elements in the sequence data types.</p>
+<p>Some examples with lists below:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">alist[i]</span></code>        – returns the element of <code class="docutils literal notranslate"><span class="pre">alist</span></code> corresponding to index <code class="docutils literal notranslate"><span class="pre">i</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alist[-i]</span></code>       - returns the ith element from the end of the list. -1 being the last</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alist[:]</span></code>        - returns a new list with all the elements (called cloning)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alist[i:j]</span></code>      - returns a new list with the elements from index <code class="docutils literal notranslate"><span class="pre">i</span></code> to index <code class="docutils literal notranslate"><span class="pre">j-1</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alist[:i]</span></code>       – returns a new list with all element before index <code class="docutils literal notranslate"><span class="pre">i</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alist[i:]</span></code>       – returns a new list with all elements corresponding to index <code class="docutils literal notranslate"><span class="pre">i</span></code> and onwards</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alist[::2]</span></code>      – returns a new list with every second element</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alist[::-1]</span></code>     - returns a new list with the reverse order of elements</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alist[i:j:k]</span></code>    – returns a new list with every kth element between index <code class="docutils literal notranslate"><span class="pre">i</span></code> and <code class="docutils literal notranslate"><span class="pre">j-1</span></code></p></li>
+</ul>
+<p><strong>NOTE</strong> The “returns” in all the above. In other words, a new list is outputted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The list used for the indexing examples</span>
+
+<span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">123</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given alist, extract the element corresponding to index 2. That is, replace None</span>
+
+<span class="n">alist_element</span> <span class="o">=</span> <span class="n">alist</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">alist_element</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">alist_element</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given alist, print the last element in the list. Replace None</span>
+
+<span class="n">alist_last</span> <span class="o">=</span> <span class="n">alist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">alist_last</span> <span class="o">==</span> <span class="mi">123</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">alist_last</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given alist, extract the sublist between index 3 and 8. Replace None</span>
+<span class="n">alist_sublist</span> <span class="o">=</span> <span class="n">alist</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">alist_sublist</span> <span class="o">==</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">error_message</span><span class="p">(</span><span class="n">alist_sublist</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given alist, extract every 4th element. Replace None</span>
+<span class="n">alist_subsampling_four</span> <span class="o">=</span> <span class="n">alist</span><span class="p">[::</span><span class="mi">4</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">alist_subsampling_four</span> <span class="o">==</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">123</span><span class="p">],</span> <span class="n">error_message</span><span class="p">(</span><span class="n">alist_subsampling_four</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">123</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given alist, get a new list with the order of elements reversed. Replace None</span>
+<span class="n">alist_reversed</span> <span class="o">=</span> <span class="n">alist</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">alist_reversed</span> <span class="o">==</span> <span class="p">[</span><span class="mi">123</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">error_message</span><span class="p">(</span><span class="n">alist_reversed</span><span class="p">,</span> <span class="p">[</span><span class="mi">123</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Play around with examples on your own to make sure that you understand how it works and explore additional possibilities.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="iterables-of-iterables">
+<h2>Iterables of iterables<a class="headerlink" href="#iterables-of-iterables" title="Link to this heading">#</a></h2>
+<p>The compound data types can contain elements of any type. In other words, their elements could be another iterable.
+For example, list of lists are very useful in many cases.</p>
+<ul class="simple">
+<li><p>Remember that some of the compound data types allow you to modify the elements (mutable), while others do not (immutable).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we have a tuple_of_lists (list1, list2, list3). What happens if you attempt to change the 0-index element of the tuple?</span>
+<span class="c1"># Recall that tuples are immutable objects</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">list3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+
+<span class="n">tuple_of_lists</span> <span class="o">=</span> <span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">,</span> <span class="n">list3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try the same but this time make it a list of lists. </span>
+<span class="c1"># Recall that lists are mutable objects.</span>
+
+<span class="n">list_of_lists</span> <span class="o">=</span> <span class="p">[</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">,</span> <span class="n">list3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="introducing-iterable-comprehensions">
+<h2>Introducing iterable comprehensions<a class="headerlink" href="#introducing-iterable-comprehensions" title="Link to this heading">#</a></h2>
+<p>Comprehensions in Python provide us with a short and concise way to construct new sequences (such as lists, set, dictionary etc.) using sequences which have been already defined.</p>
+<p>Python supports four types:</p>
+<ul class="simple">
+<li><p>List comprehensions</p></li>
+<li><p>Set comprehensions</p></li>
+<li><p>Dictionary comprehensions</p></li>
+<li><p>Generator comprehensions (for more advanced course or self-study)</p>
+<ul>
+<li><p>In short, a generator is a function that returns an iterator using the <code class="docutils literal notranslate"><span class="pre">yield</span></code> statement instead of the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement</p></li>
+</ul>
+</li>
+</ul>
+<p>Say for instance that you have a list of numbers and want to make a new list with the square of each of the numbers.</p>
+<p>Instead of writing a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, you can use a list comprehension, which is much more compact.</p>
+<p><strong>The syntax</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">newlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="k">if</span> <span class="n">condition</span> <span class="o">==</span> <span class="kc">True</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s first take the example from above. Generate a list of numbers from 1 to 10.</span>
+
+<span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">alist</span><span class="p">),</span> <span class="nb">list</span><span class="p">)</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)]</span>
+<span class="k">assert</span> <span class="n">alist</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">alist</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list called blist using a list comprehension which contains the squares of all the elements in alist</span>
+
+<span class="n">blist</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">blist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">blist</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">blist</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># But I only wanted the square of the even numbers. Let&#39;s name this list clist. </span>
+<span class="c1"># Combine list comprehensions and the modulus operator in order to filter</span>
+
+<span class="n">clist</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">alist</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 16, 36, 64, 100]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">clist</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">clist</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The iterable can also be a tuple (or any other iterable)</span>
+
+<span class="n">list_from_tuple</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
+<span class="n">list_from_str</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;COOL&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">list_from_tuple</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_from_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 3]
+[&#39;C&#39;, &#39;O&#39;, &#39;O&#39;, &#39;L&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test what happens if we do the similar set comprehension?</span>
+<span class="c1"># Replace None to make test_a and test_b True</span>
+
+<span class="n">set_from_tuple</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)}</span>
+<span class="n">set_from_str</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;COOL&#39;</span><span class="p">}</span>
+
+<span class="n">test_a</span> <span class="o">=</span> <span class="n">set_from_tuple</span> <span class="o">==</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span> 
+<span class="n">test_b</span> <span class="o">=</span> <span class="n">set_from_str</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">,</span> <span class="s1">&#39;L&#39;</span><span class="p">}</span> 
+
+<span class="k">assert</span> <span class="n">test_a</span> <span class="ow">and</span> <span class="n">test_b</span> <span class="o">==</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let us try to make a nested list comprehension as a way to generate a list of lists</span>
+<span class="c1"># Make a list (named nested_list) that is five elements long where each element is a list of integers from 0 to 4</span>
+
+<span class="n">nested_list</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nested_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4], [0, 1, 2, 3, 4]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="k">assert</span> <span class="n">nested_list</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">nested_list</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generators">
+<h2>Generators<a class="headerlink" href="#generators" title="Link to this heading">#</a></h2>
+<p>We can do other cool stuff using so-called generators.
+We will not dive into details here, I just want to show you the use of two such examples.</p>
+<p>Two very useful generators:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">zip()</span></code> - takes in iterables as arguments and returns an iterator of tuples.</p>
+<ul>
+<li><p>you can think of it as a way of travesing multiple iterables at the same time. If the iterables have different number of elements, the shortest will set the number of possible iterations!!!</p></li>
+<li><p>it returns a tuple. You can unpack the tuple into two variables immediately</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> - takes in an iterable as argument and returns a tuple containing a count index (by default starting from 0) and the value obtained from iterating over the iterable</p></li>
+</ul>
+<p>Below we are going to try them out on lists to generate dictionaries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the output of looping over &#39;zip&#39; applied to alist and blist of different length</span>
+<span class="c1"># You should see that the shortest list will limit the number of possible iterations.</span>
+
+<span class="n">list_len_two</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">list_len_three</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">list_len_two</span><span class="p">,</span> <span class="n">list_len_three</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 1)
+(3, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now assume that we have two lists containing associated information. </span>
+<span class="c1"># One could contain the names of students, the other could be their age.  </span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">]</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="c1"># Use &#39;zip&#39; to create a dictionary named student_dict with name: age value pairs.</span>
+
+<span class="n">student_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">ages</span><span class="p">):</span>
+    <span class="n">student_dict</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">age</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">student_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Alice&#39;: 24, &#39;Bob&#39;: 40, &#39;Charlie&#39;: 30}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Alice&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">student_dict</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">student_dict</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can use a dictionary comprehension to make it a one-liner</span>
+<span class="c1"># Try to implement this in variable name student_dict_from_dict_comprehension</span>
+
+<span class="n">student_dict_from_dict_comprehension</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">age</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">ages</span><span class="p">)}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Alice&#39;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">student_dict_from_dict_comprehension</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">student_dict_from_dict_comprehension</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Or even shorter using the &#39;dict&#39; mapping object directly on &#39;zip&#39;</span>
+<span class="c1"># This was to demonstrate more advanced shortcuts. Do not worry too about it at this point, just be curiuos (=explore) the many possibilities.</span>
+
+<span class="n">student_dict_from_zipgenerator</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">ages</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student_dict_from_zipgenerator</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Alice&#39;: 24, &#39;Bob&#39;: 40, &#39;Charlie&#39;: 30}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dictionaries">
+<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a code that counts the number of times a given letter occurs in a string and returns it as a dictionary called dict_letters</span>
+<span class="c1"># string.lower() or string.upper() may come in handy. Make sure that the code can handle spaces and punctuation</span>
+
+<span class="k">def</span> <span class="nf">count_letters</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Counts letters in string</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        string (str): string to be analyzed</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict_letters: dictionary with key, value being letter, #occurrences</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dict_letters</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">cleaned_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span><span class="p">:</span>
+            <span class="n">cleaned_string</span> <span class="o">+=</span> <span class="n">char</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">cleaned_string</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dict_letters</span><span class="p">:</span>
+            <span class="n">dict_letters</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dict_letters</span><span class="p">[</span><span class="n">char</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">dict_letters</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_string</span> <span class="o">=</span> <span class="s1">&#39;From zero to Python hero!&#39;</span>
+<span class="n">calculated</span> <span class="o">=</span> <span class="n">count_letters</span><span class="p">(</span><span class="n">test_string</span><span class="p">)</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">calculated</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">calculated</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_string2</span> <span class="o">=</span> <span class="s2">&quot;CCGGAAGAGCTTACTTAGGC&quot;</span> 
+<span class="n">calculated</span> <span class="o">=</span> <span class="n">count_letters</span><span class="p">(</span><span class="n">test_string2</span><span class="p">)</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">calculated</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">calculated</span><span class="si">}</span><span class="s1"> != </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="sorting-a-dictionary-by-values">
+<h3>Sorting a dictionary by values<a class="headerlink" href="#sorting-a-dictionary-by-values" title="Link to this heading">#</a></h3>
+<p>Knowing how to sort dictionaries according to their values can be very helpful.</p>
+<p>We will be looking at two methods for sorting:</p>
+<ul class="simple">
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> together with <code class="docutils literal notranslate"><span class="pre">itemgetter()</span></code> from the <code class="docutils literal notranslate"><span class="pre">operator</span></code> module (<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">operator</span> <span class="pre">import</span> <span class="pre">itemgetter</span></code>)</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> together with lambda function</p></li>
+</ul>
+<p>The built-in <code class="docutils literal notranslate"><span class="pre">sorted()</span></code> function builds a new sorted object for any iterable (<code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>, …)</p>
+<ul class="simple">
+<li><p>has a key parameter to specify a function (should return a key to be used for sorting) to be called on each element (i.e., function takes single argument) prior to comparison</p></li>
+</ul>
+<p><strong>Read more here:</strong>
+<a class="reference external" href="https://docs.python.org/3/howto/sorting.html">https://docs.python.org/3/howto/sorting.html</a></p>
+<p>Let us look at the use of both options and use the <code class="docutils literal notranslate"><span class="pre">time</span></code> module (<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">time</span></code>) to print how long time it takes to do the sortings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_list</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Nanna&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">37</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Magnus&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">11</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Annett&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">66</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Kenneth&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">53</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Allan&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">45</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jakob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">28</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Noelle&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Hjalte&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Annabel&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Evi&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+             <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Geo&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+             <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First the itemgetter implementation</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="c1"># List sorted by age</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">test_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">)))</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;time elapsed (in sec): &#39;</span><span class="p">,</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="c1"># List sorted by age in reverse order</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">test_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s2">&quot;age&quot;</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;time elapsed (in sec): &#39;</span><span class="p">,</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;name&#39;: &#39;Evi&#39;, &#39;age&#39;: 0}, {&#39;name&#39;: &#39;Geo&#39;, &#39;age&#39;: 2}, {&#39;name&#39;: &#39;Annabel&#39;, &#39;age&#39;: 7}, {&#39;name&#39;: &#39;Noelle&#39;, &#39;age&#39;: 8}, {&#39;name&#39;: &#39;Hjalte&#39;, &#39;age&#39;: 8}, {&#39;name&#39;: &#39;Magnus&#39;, &#39;age&#39;: 11}, {&#39;name&#39;: &#39;Jakob&#39;, &#39;age&#39;: 28}, {&#39;name&#39;: &#39;Nanna&#39;, &#39;age&#39;: 37}, {&#39;name&#39;: &#39;Allan&#39;, &#39;age&#39;: 45}, {&#39;name&#39;: &#39;Kenneth&#39;, &#39;age&#39;: 53}, {&#39;name&#39;: &#39;Annett&#39;, &#39;age&#39;: 66}]
+time elapsed (in sec):  9.965896606445312e-05
+[{&#39;name&#39;: &#39;Annett&#39;, &#39;age&#39;: 66}, {&#39;name&#39;: &#39;Kenneth&#39;, &#39;age&#39;: 53}, {&#39;name&#39;: &#39;Allan&#39;, &#39;age&#39;: 45}, {&#39;name&#39;: &#39;Nanna&#39;, &#39;age&#39;: 37}, {&#39;name&#39;: &#39;Jakob&#39;, &#39;age&#39;: 28}, {&#39;name&#39;: &#39;Magnus&#39;, &#39;age&#39;: 11}, {&#39;name&#39;: &#39;Noelle&#39;, &#39;age&#39;: 8}, {&#39;name&#39;: &#39;Hjalte&#39;, &#39;age&#39;: 8}, {&#39;name&#39;: &#39;Annabel&#39;, &#39;age&#39;: 7}, {&#39;name&#39;: &#39;Geo&#39;, &#39;age&#39;: 2}, {&#39;name&#39;: &#39;Evi&#39;, &#39;age&#39;: 0}]
+time elapsed (in sec):  8.153915405273438e-05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># And now to lambda functions</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="c1"># List sorted by age</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">test_list</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]))</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;time elapsed (in sec): &#39;</span><span class="p">,</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="c1"># List sorted by age in reverse order</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">test_list</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;time elapsed (in sec): &#39;</span><span class="p">,</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;name&#39;: &#39;Evi&#39;, &#39;age&#39;: 0}, {&#39;name&#39;: &#39;Geo&#39;, &#39;age&#39;: 2}, {&#39;name&#39;: &#39;Annabel&#39;, &#39;age&#39;: 7}, {&#39;name&#39;: &#39;Noelle&#39;, &#39;age&#39;: 8}, {&#39;name&#39;: &#39;Hjalte&#39;, &#39;age&#39;: 8}, {&#39;name&#39;: &#39;Magnus&#39;, &#39;age&#39;: 11}, {&#39;name&#39;: &#39;Jakob&#39;, &#39;age&#39;: 28}, {&#39;name&#39;: &#39;Nanna&#39;, &#39;age&#39;: 37}, {&#39;name&#39;: &#39;Allan&#39;, &#39;age&#39;: 45}, {&#39;name&#39;: &#39;Kenneth&#39;, &#39;age&#39;: 53}, {&#39;name&#39;: &#39;Annett&#39;, &#39;age&#39;: 66}]
+time elapsed (in sec):  8.130073547363281e-05
+[{&#39;name&#39;: &#39;Annett&#39;, &#39;age&#39;: 66}, {&#39;name&#39;: &#39;Kenneth&#39;, &#39;age&#39;: 53}, {&#39;name&#39;: &#39;Allan&#39;, &#39;age&#39;: 45}, {&#39;name&#39;: &#39;Nanna&#39;, &#39;age&#39;: 37}, {&#39;name&#39;: &#39;Jakob&#39;, &#39;age&#39;: 28}, {&#39;name&#39;: &#39;Magnus&#39;, &#39;age&#39;: 11}, {&#39;name&#39;: &#39;Noelle&#39;, &#39;age&#39;: 8}, {&#39;name&#39;: &#39;Hjalte&#39;, &#39;age&#39;: 8}, {&#39;name&#39;: &#39;Annabel&#39;, &#39;age&#39;: 7}, {&#39;name&#39;: &#39;Geo&#39;, &#39;age&#39;: 2}, {&#39;name&#39;: &#39;Evi&#39;, &#39;age&#39;: 0}]
+time elapsed (in sec):  5.435943603515625e-05
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="increasing-efficiency-of-fibonacci-using-dictionaries">
+<h3>Increasing efficiency of fibonacci using dictionaries<a class="headerlink" href="#increasing-efficiency-of-fibonacci-using-dictionaries" title="Link to this heading">#</a></h3>
+<p>Last time we implemented a function <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> to compute Fibonacci numbers. I have pasted my version in below.</p>
+<p>We did so using recursion. We saw that the number of calls to the <code class="docutils literal notranslate"><span class="pre">fibonacci</span></code> grew very quickly and a lot of numbers have to be recalculated.</p>
+<p>I try to demonstrate this below using my original implementation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the code below to see the individual fibonacci calls.</span>
+
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the next Fibonacci number for iteration n</span>
+<span class="sd">    assuming x &gt;= 0</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (int): iteration x</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: Fibonacci of x, number of fibonacci calls</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="k">global</span> <span class="n">number_fibonacci_calls</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Calling fibonacci with x: &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">number_fibonacci_calls</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    
+<span class="n">number_fibonacci_calls</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of fibonacci calls with original implementation: &quot;</span><span class="p">,</span> <span class="n">number_fibonacci_calls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calling fibonacci with x:  12
+Calling fibonacci with x:  11
+Calling fibonacci with x:  10
+Calling fibonacci with x:  9
+Calling fibonacci with x:  8
+Calling fibonacci with x:  7
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  7
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  8
+Calling fibonacci with x:  7
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  9
+Calling fibonacci with x:  8
+Calling fibonacci with x:  7
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  7
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  10
+Calling fibonacci with x:  9
+Calling fibonacci with x:  8
+Calling fibonacci with x:  7
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  7
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  8
+Calling fibonacci with x:  7
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  6
+Calling fibonacci with x:  5
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  4
+Calling fibonacci with x:  3
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Calling fibonacci with x:  1
+Calling fibonacci with x:  2
+Calling fibonacci with x:  1
+Calling fibonacci with x:  0
+Number of fibonacci calls with original implementation:  465
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you just saw, fibonacci is called many times with the same argument.</p>
+<p>This is double/triplet/quadruple/… work!!! We can do better than that using dictionaries because they allow us to store previously calculated values and then check if they have already been calculated.</p>
+<p><strong>New speedy algorithm:</strong></p>
+<ul class="simple">
+<li><p>First do a look-up in the dictionary in case of already calculated values</p>
+<ul>
+<li><p>Remember that at the start you have the base values in the dictionary</p></li>
+<li><p>If so, use the value in the dictionary (instead of recalculating it)</p></li>
+<li><p>If not, calculate the missing value and the add it to the dictionary</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the new speedy fibonacci function. Print the number of fibonacci calls and the final dictionary</span>
+
+<span class="k">def</span> <span class="nf">fibonacci_speedy</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">d</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the next Fibonacci number for iteration n</span>
+<span class="sd">    assuming x &gt;= 0</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (int): iteration x</span>
+<span class="sd">        d (dict): dictionary to hold previously calculated values</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: Fibonacci of x, number of fibonacci calls</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="k">global</span> <span class="n">number_fibonacci_calls</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">number_fibonacci_calls</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">fib_n_m1</span> <span class="o">=</span> <span class="n">fibonacci_speedy</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">fib_n_m1</span> 
+        <span class="n">fib_n_m2</span> <span class="o">=</span> <span class="n">fibonacci_speedy</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> 
+        <span class="n">d</span><span class="p">[</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">fib_n_m2</span>
+        <span class="k">return</span> <span class="n">fib_n_m1</span> <span class="o">+</span> <span class="n">fib_n_m2</span>
+
+<span class="n">fibonacci_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+<span class="n">number_fibonacci_calls</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">fibonacci_speedy</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">fibonacci_dict</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of fibonacci calls with speedy implementation: &quot;</span><span class="p">,</span> <span class="n">number_fibonacci_calls</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The final dictionary: &#39;</span><span class="p">,</span> <span class="n">fibonacci_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of fibonacci calls with speedy implementation:  11
+The final dictionary:  {0: 1, 1: 1, 2: 2, 3: 3, 4: 5, 5: 8, 6: 13, 7: 21, 8: 34, 9: 55, 10: 89, 11: 144}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+<span class="k">assert</span> <span class="n">fibonacci_speedy</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">fibonacci_dict</span><span class="p">)</span> <span class="o">==</span> <span class="mi">233</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">fibonacci_speedy</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">fibonacci_dict</span><span class="p">),</span> <span class="mi">233</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="mutables-versus-immutables-and-objects">
+<h2>Mutables versus immutables and objects<a class="headerlink" href="#mutables-versus-immutables-and-objects" title="Link to this heading">#</a></h2>
+<p>This is an introductory course to Python, so we will not dive deep into memory.</p>
+<p>Yet, you need to understand:</p>
+<ul class="simple">
+<li><p>Everything in Python is an object</p></li>
+<li><p>Mutable vs immutable objects</p>
+<ul>
+<li><p>mutable: allows you to change their value or data without affect the objects identity</p>
+<ul>
+<li><p>Examples: <code class="docutils literal notranslate"><span class="pre">dict,</span> <span class="pre">list,</span> <span class="pre">set</span></code></p></li>
+</ul>
+</li>
+<li><p>immutable: does not allow these kinds of changes</p>
+<ul>
+<li><p>Examples: <code class="docutils literal notranslate"><span class="pre">int,</span> <span class="pre">float,</span> <span class="pre">bool,</span> <span class="pre">str,</span> <span class="pre">tuple</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Variables/names in Python</p></li>
+</ul>
+<p><strong>Keeping track of memory addressed</strong></p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">id()</span></code> to keep check the memory address of a given object</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">hex()</span></code> around <code class="docutils literal notranslate"><span class="pre">id()</span></code>to get the memory address as a hexidecimal number</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, an immutable type: </span>
+<span class="c1"># Let us recall what happens when adding 1 to an integer.</span>
+<span class="c1"># We are going to keep track of the object id by printing its memory address</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;i before adding 1: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;memory address of i before adding 1: &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;i after adding 1: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;memory address of i after adding 1: &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+
+<span class="c1"># As you will see, the += 1 operation reassigned i. So now it has a different memory address.</span>
+<span class="c1"># This is because it is immutable (=cannot be changed in place!)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i before adding 1:  4
+memory address of i before adding 1:  0x7f4653661990
+i after adding 1:  5
+memory address of i after adding 1:  0x7f46536619b0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Next, a mutable type:</span>
+<span class="c1"># Let us see what happens when appending 1 to a list?</span>
+
+<span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;alist before appending 1: &#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;memory address of alist before appending 1: &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">alist</span><span class="p">)))</span>
+
+<span class="n">alist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;alist after appending 1: &#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;memory address of alist after appending 1: &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">alist</span><span class="p">)))</span>
+
+<span class="c1"># As you will see, the append operation DID NOT change the alist!</span>
+<span class="c1"># This is because a list is mutable (=CAN BE changed in place!)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alist before appending 1:  [2, 4]
+memory address of alist before appending 1:  0x7f464c185540
+alist after appending 1:  [2, 4, 1]
+memory address of alist after appending 1:  0x7f464c185540
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now comes a tricky case.</span>
+<span class="c1"># What happens if we add 1 to each element in the list?</span>
+<span class="c1"># Now we need to recall that while a list is mutable, the numbers (int or float) are immutable.</span>
+<span class="c1"># This gives rise to the following behavior.</span>
+
+<span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;alist before adding 1: &#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;memory address of alist before adding 1: &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">alist</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">([</span><span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alist</span><span class="p">)):</span>
+    <span class="n">alist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;alist after adding 1: &#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;memory address of alist after adding 1: &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">alist</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">([</span><span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">])</span>
+
+<span class="c1"># As you will see, the list maintained the same memory address following the addition - because it is mutable.</span>
+<span class="c1"># However, the += 1 operation binds each element to a new value because the elements (int in this case) were immutable.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alist before adding 1:  [2, 4]
+memory address of alist before adding 1:  0x7f464c1dadc0
+[&#39;0x7f4653661950&#39;, &#39;0x7f4653661990&#39;]
+alist after adding 1:  [3, 5]
+memory address of alist after adding 1:  0x7f464c1dadc0
+[&#39;0x7f4653661970&#39;, &#39;0x7f46536619b0&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="an-extension-of-the-above-discussion-to-functions">
+<h2>An extension of the above discussion to functions<a class="headerlink" href="#an-extension-of-the-above-discussion-to-functions" title="Link to this heading">#</a></h2>
+<p>Why do I show you this?</p>
+<ul class="simple">
+<li><p>Because this is very common surprise (a negative one, producing unexpected results) when you are new to programming in Python!</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let us first recall the behavior of an immutable data type inside a function.</span>
+<span class="c1"># Here we consider an integer argument that is incremented by one by the function &#39;increment_print&#39;</span>
+<span class="c1"># Study the code below and print the output of inputting i = 5</span>
+
+<span class="k">def</span> <span class="nf">increment_print</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Increments number by 1 and prints its value</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        i (int): number to increment</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Print i inside function call after increment: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="n">i</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Print i before and outside function call:     &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="n">increment_print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Print i after and outside function call:      &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+
+<span class="c1"># What you should see is that i defined globally outside the function remains the same before and after the function call.</span>
+<span class="c1"># The reason being: It is immutable!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Print i before and outside function call:      5
+Print i inside function call after increment:  6
+Print i after and outside function call:       5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now let us see what happens, if we write a function that does a similar thing but on a mutable data type.</span>
+<span class="c1"># We are going to use a list and iterate over its elements</span>
+<span class="c1"># Study the code below and print the output of inputting alist = [2,3]</span>
+
+<span class="k">def</span> <span class="nf">list_append_print</span><span class="p">(</span><span class="n">blist</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Appends 1 to the list and prints it</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        blist (list): list of integers</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="n">blist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Print blist inside function call after increment: &#39;</span><span class="p">,</span> <span class="n">blist</span><span class="p">)</span>
+
+<span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Print alist before and outside function call:     &#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+<span class="n">list_append_print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Print alist after and outside function call:      &#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+
+<span class="c1"># What you should see is that the scope of the blist INSIDE the function affected the value of alist OUTSIDE the function!!! </span>
+<span class="c1"># This happened without ever returning anything from the function or using global (for global scope) in the function!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Print alist before and outside function call:      [2, 3]
+Print blist inside function call after increment:  [2, 3, 1]
+Print alist after and outside function call:       [2, 3, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now let us see what happens, if we write a function that does a similar thing but on a mutable data type.</span>
+<span class="c1"># We are going to use a list and iterate over its elements</span>
+<span class="c1"># Study the code below and print the output of inputting alist = [2,3]</span>
+
+<span class="k">def</span> <span class="nf">list_increment_print</span><span class="p">(</span><span class="n">alist</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Increments the integers of a list by 1 and prints the list</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        alist (list): list of integers</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alist</span><span class="p">)):</span>
+        <span class="n">alist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;alist inside function after increment: &#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+
+<span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Before function call&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Memory ID of alist:    &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">alist</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alist</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Memory ID of alist[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">]: &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">alist</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;alist outside function call:           &#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----------&#39;</span><span class="p">)</span>
+<span class="n">list_increment_print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-----------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After function call&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;alist outside function call:           &#39;</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Memory ID of alist:    &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">alist</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alist</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Memory ID of alist[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">]: &#39;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">alist</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span> 
+
+<span class="c1"># What you should see is that the memory locations of the elements of the lists have been changed because the elements were immutable</span>
+<span class="c1"># However, the memory address of the list remains the same because it is mutable.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Before function call
+Memory ID of alist:     0x7f465025fd40
+Memory ID of alist[0]:  0x7f4653661950
+Memory ID of alist[1]:  0x7f4653661970
+alist outside function call:            [2, 3]
+-----------
+alist inside function after increment:  [3, 4]
+-----------
+After function call
+alist outside function call:            [3, 4]
+Memory ID of alist:     0x7f465025fd40
+Memory ID of alist[0]:  0x7f4653661970
+Memory ID of alist[1]:  0x7f4653661990
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./session4"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../session3/3_functions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Session 3 - Functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../matplotlib/matplotlib_exercises.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Matplotlib - Visualization with Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-and-slicing">Indexing and slicing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterables-of-iterables">Iterables of iterables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-iterable-comprehensions">Introducing iterable comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">Generators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-a-dictionary-by-values">Sorting a dictionary by values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#increasing-efficiency-of-fibonacci-using-dictionaries">Increasing efficiency of fibonacci using dictionaries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mutables-versus-immutables-and-objects">Mutables versus immutables and objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-extension-of-the-above-discussion-to-functions">An extension of the above discussion to functions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

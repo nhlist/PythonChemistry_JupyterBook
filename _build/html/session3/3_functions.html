@@ -1,0 +1,1380 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Session 3 - Functions &#8212; My Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'session3/3_functions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Session 4 - Compound data types" href="../session4/4_compound_datatypes.html" />
+    <link rel="prev" title="Session 2 - Flow control" href="../session2/2_flowcontrol.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My Jupyter Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    PythonProgramming - Exercises
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../session1/1_simple_datatypes.html">Session 1 - Simple data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session2/2_flowcontrol.html">Session 2 - Flow control</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Session 3 - Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session4/4_compound_datatypes.html">Session 4 - Compound data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/matplotlib_exercises.html">Introduction to Matplotlib - Visualization with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numpy/numpy_exercises.html">Introduction to NumPy - Numerical Python</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/session3/3_functions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Session 3 - Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-help-to-get-documentation">Using <code class="docutils literal notranslate"><span class="pre">help()</span></code> to get documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope">Scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion-a-function-calling-itself">Recursion - a function calling itself.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-classical-demonstration-for-recursive-programming-considers-palindromes">Another classical demonstration for recursive programming considers palindromes.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define helper function</span>
+<span class="k">def</span> <span class="nf">error_message</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Actual </span><span class="si">{</span><span class="n">actual</span><span class="si">}</span><span class="s1"> != Expected </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="session-3-functions">
+<h1>Session 3 - Functions<a class="headerlink" href="#session-3-functions" title="Link to this heading">#</a></h1>
+<p>Today, we are going to practice functions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="o">&lt;</span><span class="n">arguments</span><span class="o">&gt;</span><span class="p">):</span>
+    <span class="n">docstring</span>
+    <span class="o">&lt;</span><span class="n">codeblock</span><span class="o">&gt;</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Remember:</p>
+<ul class="simple">
+<li><p>A docstring just below the definition line. There are several formats, e.g., <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google’s format</a> or</p></li>
+<li><p>The colon as last character on the definition line</p></li>
+<li><p>Indentation to indicate the code block belonging to that function</p></li>
+<li><p>The function often has a return statement but not always, e.g., if you have a function that only prints</p></li>
+</ul>
+<p><strong>A word on docstrings</strong></p>
+<p>To get Visual Studio Code to help autogenerate a docstring template, you can install the extension <code class="docutils literal notranslate"><span class="pre">autoDocstring-python</span> <span class="pre">Docstring</span> <span class="pre">generator</span></code>.
+<a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring">https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring</a></p>
+<p>Keyboard shortcut to get the docstring template:</p>
+<ul class="simple">
+<li><p>Mac: <code class="docutils literal notranslate"><span class="pre">cmd+shift+2</span></code></p></li>
+<li><p>Windows/Linux: <code class="docutils literal notranslate"><span class="pre">ctrl+shift+2</span></code></p></li>
+</ul>
+<p><strong>Remember</strong></p>
+<p>to fill in type hinting before (see type hinting below) or you will have to manually set the data types.</p>
+<p>In Google Docstring format, this is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Calculates the sum of two numbers.</span>
+
+<span class="sd">    sum = a + b</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        a (float): description of argument variable a</span>
+<span class="sd">        b (int): description of argument variable b</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: sum of a and b</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p><strong>Type hinting</strong> (Since Python 3.5)</p>
+<p>Python is dynamically typed and does not use explicit declaration of variable types.</p>
+<p>This means that you can do things like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nanna&quot;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+</div>
+<p>In other words, the same variable (here <code class="docutils literal notranslate"><span class="pre">name</span></code>) can be used for different data types in the same piece of code.
+This is again possible due to the way memory is managed in Python.
+While this gives a lot of flexibilit, it can also be a potential source of issues.</p>
+<p>In an attempt to alleviate this, one can use type hinting.</p>
+<ul class="simple">
+<li><p>Type hinting indicates what data type is expected for a given variable</p></li>
+<li><p>However, it does not do more than it says – it ONLY provides a type hint. It does neither check nor enforce any type!!!</p></li>
+</ul>
+<p>In the example above, type hinting would look like the following</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
+    <span class="n">docstring</span>
+    <span class="o">&lt;</span><span class="n">codeblock</span><span class="o">&gt;</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function named &#39;sum&#39; that takes two numbers and returns their sum</span>
+<span class="c1"># Remember to include a docstring</span>
+
+<span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="mf">4.</span><span class="p">,</span><span class="mf">5.</span><span class="p">)</span> <span class="o">==</span> <span class="mi">9</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mf">4.</span><span class="p">,</span><span class="mf">5.</span><span class="p">),</span> <span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function that &#39;my_max&#39; that accepts two numbers as parameters and that prints to the screen and returns the larger number. </span>
+<span class="c1"># For this elementary exercise, do not use the built-in function &#39;max()&#39; - just revert to elementary expressions and statements.</span>
+
+
+<span class="k">def</span> <span class="nf">my_max</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the largest value of a and b</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        a (float): number to be compared with b</span>
+<span class="sd">        b (float): number to be compared with a</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: the largest value of a and b</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">my_max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;my_max(2, 6) -&gt; </span><span class="si">{</span><span class="n">my_max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="si">}</span><span class="s1"> != 6&#39;</span>
+<span class="k">assert</span> <span class="n">my_max</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;my_max(5, 3) -&gt; </span><span class="si">{</span><span class="n">my_max</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1"> != 5&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function is_odd that takes a positive integer &#39;i&#39; as input and return True if &#39;i&#39; is odd, otherwise False</span>
+
+<span class="k">def</span> <span class="nf">is_odd</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns True if integer is odd</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        i (int): integer to check for whether odd</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if i is odd, otherwise False</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="n">remainder</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">remainder</span> <span class="o">!=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">is_odd</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">is_odd</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now write the same function without a return statement. Let it just make a print statement print(&#39;without return&#39;)</span>
+
+<span class="k">def</span> <span class="nf">is_odd_without_return</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        i (int): a positive integer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">remainder</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;without return&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">remainder</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">is_odd_without_return</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">is_odd_without_return</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>without return
+True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;is_odd&#39; function together with the built-in &#39;range&#39; function to loop over the numbers from 1 to 20 and print whether they are even or odd.</span>
+<span class="c1"># In other words, use the is_odd function to avoid code duplication. Functions are great!</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">is_odd</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The integer i is odd:  &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The integer i is even: &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The integer i is odd:   1
+The integer i is even:  2
+The integer i is odd:   3
+The integer i is even:  4
+The integer i is odd:   5
+The integer i is even:  6
+The integer i is odd:   7
+The integer i is even:  8
+The integer i is odd:   9
+The integer i is even:  10
+The integer i is odd:   11
+The integer i is even:  12
+The integer i is odd:   13
+The integer i is even:  14
+The integer i is odd:   15
+The integer i is even:  16
+The integer i is odd:   17
+The integer i is even:  18
+The integer i is odd:   19
+The integer i is even:  20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function &#39;my_sum&#39; to sum the numbers in a list using a for loop. You can assume that it consists of numbers. Do not use the built-in &#39;sum&#39; function.</span>
+<span class="c1"># Call the function with the test_list_float list as argument and print the result</span>
+
+<span class="n">test_list_float</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">5.</span><span class="p">,</span><span class="mf">7.</span><span class="p">,</span><span class="mf">3.</span><span class="p">,</span><span class="mf">9.</span><span class="p">,</span><span class="mf">6.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">8.</span><span class="p">,</span><span class="mf">76.</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">my_sum</span><span class="p">(</span><span class="n">listofnumbers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the sum of the numbers in a list</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        listofnumbers (list[float]): list of numbers (should be either floats or int)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: the sum of the numbers </span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">listofnumbers</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">+=</span> <span class="n">number</span>
+    <span class="k">return</span> <span class="nb">sum</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_sum</span><span class="p">(</span><span class="n">test_list_float</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>117.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">my_sum</span><span class="p">(</span><span class="n">test_list_float</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="mi">117</span><span class="p">),</span> <span class="n">error_message</span><span class="p">(</span><span class="n">my_sum</span><span class="p">(</span><span class="n">test_list_float</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="mi">117</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="using-help-to-get-documentation">
+<h2>Using <code class="docutils literal notranslate"><span class="pre">help()</span></code> to get documentation<a class="headerlink" href="#using-help-to-get-documentation" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Having written the mysum function, try to print its documentation using &#39;help(object)&#39;</span>
+<span class="c1"># You should use this every time you want to learn more about anything in Python</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">my_sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function my_sum in module __main__:
+
+my_sum(listofnumbers: list) -&gt; float
+    Calculates the sum of the numbers in a list
+    
+    Args:
+        listofnumbers (list[float]): list of numbers (should be either floats or int)
+    
+    Returns:
+        float: the sum of the numbers
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here applied on &#39;str&#39;</span>
+
+<span class="n">help</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on class float in module builtins:
+
+class float(object)
+ |  float(x=0, /)
+ |  
+ |  Convert a string or number to a floating point number, if possible.
+ |  
+ |  Methods defined here:
+ |  
+ |  __abs__(self, /)
+ |      abs(self)
+ |  
+ |  __add__(self, value, /)
+ |      Return self+value.
+ |  
+ |  __bool__(self, /)
+ |      self != 0
+ |  
+ |  __ceil__(self, /)
+ |      Return the ceiling as an Integral.
+ |  
+ |  __divmod__(self, value, /)
+ |      Return divmod(self, value).
+ |  
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |  
+ |  __float__(self, /)
+ |      float(self)
+ |  
+ |  __floor__(self, /)
+ |      Return the floor as an Integral.
+ |  
+ |  __floordiv__(self, value, /)
+ |      Return self//value.
+ |  
+ |  __format__(self, format_spec, /)
+ |      Formats the float according to format_spec.
+ |  
+ |  __ge__(self, value, /)
+ |      Return self&gt;=value.
+ |  
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |  
+ |  __getnewargs__(self, /)
+ |  
+ |  __gt__(self, value, /)
+ |      Return self&gt;value.
+ |  
+ |  __hash__(self, /)
+ |      Return hash(self).
+ |  
+ |  __int__(self, /)
+ |      int(self)
+ |  
+ |  __le__(self, value, /)
+ |      Return self&lt;=value.
+ |  
+ |  __lt__(self, value, /)
+ |      Return self&lt;value.
+ |  
+ |  __mod__(self, value, /)
+ |      Return self%value.
+ |  
+ |  __mul__(self, value, /)
+ |      Return self*value.
+ |  
+ |  __ne__(self, value, /)
+ |      Return self!=value.
+ |  
+ |  __neg__(self, /)
+ |      -self
+ |  
+ |  __pos__(self, /)
+ |      +self
+ |  
+ |  __pow__(self, value, mod=None, /)
+ |      Return pow(self, value, mod).
+ |  
+ |  __radd__(self, value, /)
+ |      Return value+self.
+ |  
+ |  __rdivmod__(self, value, /)
+ |      Return divmod(value, self).
+ |  
+ |  __repr__(self, /)
+ |      Return repr(self).
+ |  
+ |  __rfloordiv__(self, value, /)
+ |      Return value//self.
+ |  
+ |  __rmod__(self, value, /)
+ |      Return value%self.
+ |  
+ |  __rmul__(self, value, /)
+ |      Return value*self.
+ |  
+ |  __round__(self, ndigits=None, /)
+ |      Return the Integral closest to x, rounding half toward even.
+ |      
+ |      When an argument is passed, work like built-in round(x, ndigits).
+ |  
+ |  __rpow__(self, value, mod=None, /)
+ |      Return pow(value, self, mod).
+ |  
+ |  __rsub__(self, value, /)
+ |      Return value-self.
+ |  
+ |  __rtruediv__(self, value, /)
+ |      Return value/self.
+ |  
+ |  __sub__(self, value, /)
+ |      Return self-value.
+ |  
+ |  __truediv__(self, value, /)
+ |      Return self/value.
+ |  
+ |  __trunc__(self, /)
+ |      Return the Integral closest to x between 0 and x.
+ |  
+ |  as_integer_ratio(self, /)
+ |      Return integer ratio.
+ |      
+ |      Return a pair of integers, whose ratio is exactly equal to the original float
+ |      and with a positive denominator.
+ |      
+ |      Raise OverflowError on infinities and a ValueError on NaNs.
+ |      
+ |      &gt;&gt;&gt; (10.0).as_integer_ratio()
+ |      (10, 1)
+ |      &gt;&gt;&gt; (0.0).as_integer_ratio()
+ |      (0, 1)
+ |      &gt;&gt;&gt; (-.25).as_integer_ratio()
+ |      (-1, 4)
+ |  
+ |  conjugate(self, /)
+ |      Return self, the complex conjugate of any float.
+ |  
+ |  hex(self, /)
+ |      Return a hexadecimal representation of a floating-point number.
+ |      
+ |      &gt;&gt;&gt; (-0.1).hex()
+ |      &#39;-0x1.999999999999ap-4&#39;
+ |      &gt;&gt;&gt; 3.14159.hex()
+ |      &#39;0x1.921f9f01b866ep+1&#39;
+ |  
+ |  is_integer(self, /)
+ |      Return True if the float is an integer.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Class methods defined here:
+ |  
+ |  __getformat__(typestr, /) from builtins.type
+ |      You probably don&#39;t want to use this function.
+ |      
+ |        typestr
+ |          Must be &#39;double&#39; or &#39;float&#39;.
+ |      
+ |      It exists mainly to be used in Python&#39;s test suite.
+ |      
+ |      This function returns whichever of &#39;unknown&#39;, &#39;IEEE, big-endian&#39; or &#39;IEEE,
+ |      little-endian&#39; best describes the format of floating point numbers used by the
+ |      C type named by typestr.
+ |  
+ |  __set_format__(typestr, fmt, /) from builtins.type
+ |      You probably don&#39;t want to use this function.
+ |      
+ |        typestr
+ |          Must be &#39;double&#39; or &#39;float&#39;.
+ |        fmt
+ |          Must be one of &#39;unknown&#39;, &#39;IEEE, big-endian&#39; or &#39;IEEE, little-endian&#39;,
+ |          and in addition can only be one of the latter two if it appears to
+ |          match the underlying C reality.
+ |      
+ |      It exists mainly to be used in Python&#39;s test suite.
+ |      
+ |      Override the automatic determination of C-level floating point type.
+ |      This affects how floats are converted to and from binary strings.
+ |  
+ |  fromhex(string, /) from builtins.type
+ |      Create a floating-point number from a hexadecimal string.
+ |      
+ |      &gt;&gt;&gt; float.fromhex(&#39;0x1.ffffp10&#39;)
+ |      2047.984375
+ |      &gt;&gt;&gt; float.fromhex(&#39;-0x1p-1074&#39;)
+ |      -5e-324
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |  
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  imag
+ |      the imaginary part of a complex number
+ |  
+ |  real
+ |      the real part of a complex number
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Link to this heading">#</a></h2>
+<p>A variable is only available from inside the region it is created. This is called scope.</p>
+<ul class="simple">
+<li><p><strong>Global scope</strong>: A variable created in the main body of the Python code is a global variable and belongs to the global scope.</p></li>
+<li><p><strong>Local scope</strong>: A variable created inside a function belongs to the local scope of that function and can only be used inside that function.</p>
+<ul>
+<li><p>You can change the scope of a local variable with the <code class="docutils literal notranslate"><span class="pre">global</span></code> keyword inside the function. You will see an example with Fibonacci numbers below.</p></li>
+</ul>
+</li>
+</ul>
+<p>The above means that if you operate with the same variable name inside and outside of a function, Python will treat them as two separate variables:</p>
+<ul class="simple">
+<li><p>one available in the global scope (outside the function)</p></li>
+<li><p>one available in the local scope (inside the function)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here is an example where x is used in both the local scope of a function and in the global scope outside the function.</span>
+<span class="c1"># As described above, Python will treat these as two separate variables by their different values when printing them.</span>
+
+<span class="k">def</span> <span class="nf">add_one</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds one to the input argument x and print its value</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (int): input number</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x inside function: &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x outside function before function call: &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">add_one</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x outside function after function call: &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Value of x outside function before function call:  5
+Value of x inside function:  6
+Value of x outside function after function call:  5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The same function as before but now it returns the value. If the output is assign to a different variable, then x outside the function will remain the same as before the function call.</span>
+<span class="c1"># If we instead reassign the value of x with the output of the function, i</span>
+
+<span class="k">def</span> <span class="nf">add_one_with_return</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds one to the input argument x and returns the new value</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (int): input value </span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: input value with one added</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x inside the function: &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x outside function before function call: &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">add_one_with_return</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x outside function after function call: &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of z outside the function after function call: &#39;</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+<span class="c1"># Now we instead reassign x to the output of the function</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">add_one_with_return</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x outside function after function call but now reassigning x to the output of the function: &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Value of x outside function before function call:  3
+Value of x inside the function:  4
+Value of x outside function after function call:  3
+Value of z outside the function after function call:  4
+Value of x inside the function:  4
+Value of x outside function after function call but now reassigning x to the output of the function:  4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now to an example, where we try to access a variable outside scope. </span>
+<span class="c1"># Here we not pass in x as argument of the function. Rather x is defined outside the function (global variable), which means that Python can access its value inside the function BUT NOT modify it.</span>
+<span class="c1"># To modify it, we would have to declare it a global variable inside the function</span>
+
+<span class="k">def</span> <span class="nf">show_x</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints value of x, adds one to it and print it again</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># declare global variable</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">show_x</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># declare global variable</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">show_x</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="nn">Cell In[17], line 8,</span> in <span class="ni">show_x</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">show_x</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Prints value of x, adds one to it and print it again</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="ne">UnboundLocalError</span>: local variable &#39;x&#39; referenced before assignment
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">show_x</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints value of x and print it with one added BUT without reassigning its value (Important!)!!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x inside function:       &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x+1 inside function:     &#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># declare global variable</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">show_x</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Value of x outside the function:  &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="recursion-a-function-calling-itself">
+<h2>Recursion - a function calling itself.<a class="headerlink" href="#recursion-a-function-calling-itself" title="Link to this heading">#</a></h2>
+<p>What is recursion?</p>
+<ul class="simple">
+<li><p><strong>Algorithmically:</strong> a way to design solutions by divide-and-conquer</p>
+<ul>
+<li><p>The idea is to reduce a problem to simpler versions of the same problem</p></li>
+</ul>
+</li>
+<li><p><strong>Semantically:</strong> a programming technique where a function calls itself</p>
+<ul>
+<li><p>in programming, the goal is to NOT have infinite recursion</p></li>
+<li><p>must have one or more base cases that are easy to solve</p></li>
+<li><p>must solve the same problem on some other input with the goal of simplifying the larger problem input</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Fibonacci sequence</strong></p>
+<p>The example we will look at an old-time classic - Fibonacci numbers making up the Fibonacci sequence.</p>
+<p>This sequence can be written in terms of the following rule:</p>
+<p><span class="math notranslate nohighlight">\(
+x_n = x_{n-1} + x_{n-2} 
+\)</span></p>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x_n\)</span> is the current (nth) number in the sequence</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{n-1}\)</span> is the previous number in the sequence</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_{n-2}\)</span> is the second number before the current in the sequence</p></li>
+</ul>
+<p>The sequence has been known for a very long time but has its name after the Italian mathematician Leonardo of Pisa, also known as Fibonacci who introduced it in his book Liber Abaci (The Book of Calculation, 1202).</p>
+<p>Leonardo of Pisa used it to calculate the growth in rabbit populations according to the following rules:</p>
+<ul class="simple">
+<li><p>Start with one pair (one female, one male)</p></li>
+<li><p>One newborn pair of rabbits (one female, one male) are put in a field</p></li>
+<li><p>Rabbits mate at age of one month</p></li>
+<li><p>Rabbits have a one month gestason (pregnancy) period</p></li>
+<li><p>Assume rabbits never die – that a female always produces one new pair (one male, one female) every month from its second month on.</p></li>
+</ul>
+<p>How many females are there at the end of one year? What about after two years?</p>
+<p>You task is to fill the table below.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Month</p></th>
+<th class="head text-center"><p>0</p></th>
+<th class="head text-center"><p>1</p></th>
+<th class="head text-center"><p>2</p></th>
+<th class="head text-center"><p>3</p></th>
+<th class="head text-center"><p>4</p></th>
+<th class="head text-center"><p>5</p></th>
+<th class="head text-center"><p>6</p></th>
+<th class="head text-center"><p>7</p></th>
+<th class="head text-center"><p>8</p></th>
+<th class="head text-center"><p>9</p></th>
+<th class="head text-center"><p>10</p></th>
+<th class="head text-center"><p>11</p></th>
+<th class="head text-center"><p>12</p></th>
+<th class="head text-center"><p>24</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>#Pairs</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>#Function calls</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+<td class="text-center"><p>?</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The above rules translate into Fibonacci sequence:</p>
+<p><code class="docutils literal notranslate"><span class="pre">females(n)</span> <span class="pre">=</span> <span class="pre">females(n-1)</span> <span class="pre">+</span> <span class="pre">females(n-2)</span></code></p>
+<ul class="simple">
+<li><p>Every female alive at month n-2 will produce one female in month n</p></li>
+<li><p>These can be added those alive in month n-1 to get total alive in month n</p></li>
+</ul>
+<p>Below you will calculate the remaining numbers in the sequence.</p>
+<p><strong>Fun facts:</strong></p>
+<ul class="simple">
+<li><p>When we take any two successive Fibonacci Numbers, their ratio is very close to the Golden Ratio (1.61803398875…). As you might have heard about in some Art class, since some 20th century artists have proportioned their works according to this ratio.</p></li>
+<li><p>If we make squares with dimensions corresponding the Fibonacci numbers, we will get a beautiful spiral. This spiraling pattern is found in nature.
+Check out:</p></li>
+<li><p><a class="reference external" href="https://www.mathsisfun.com/numbers/fibonacci-sequence.html">Fibonacci spiral</a></p></li>
+<li><p><a class="reference external" href="https://twitter.com/wonderofscience/status/1256946122842501121">Nature’s example</a></p></li>
+</ul>
+<p><strong>More on wikipedia:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Fibonacci_sequence">Fibonacci sequence</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Golden_ratio">Golden ratio</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function fibonacci and use it recursively to compute the remaining numbers to fill in the table.</span>
+<span class="c1"># Remember the base cases given in the table, namely: females(0) = 1 and females(1) = 1</span>
+
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the next Fibonacci number for iteration n</span>
+<span class="sd">    assuming x &gt;= 0</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (int): iteration x</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: Fibonacci of x</span>
+<span class="sd">    &quot;&quot;&quot;</span>   
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Month </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">fibonacci</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">==</span> <span class="mi">233</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="mi">233</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s see what this looks like when plotted.</span>
+<span class="c1"># Use matplotlib.pyplot to plot the number of females over the first two years</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">females</span> <span class="o">=</span> <span class="p">[</span><span class="n">fibonacci</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">)]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span> <span class="n">females</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">females</span><span class="p">)])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Months&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of females&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modify your fibonacci function to accumulate the number of calls to the fibonacci function.</span>
+<span class="c1"># Defining a global variable inside the function comes in handy here. As you learned above, this allows you to change a global variable inside a function.</span>
+<span class="c1"># Calculate how many fibonacci function calls (variable number_fibonacci_calls) you do to get females(12). Do the same but after 2 years.</span>
+<span class="c1"># As you will see, the number explodes quickly. In lecture 4, you will learn a more efficient means to do this by storing intermediate values.</span>
+
+<span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the next Fibonacci number for iteration n</span>
+<span class="sd">    assuming x &gt;= 0</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (int): iteration x</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int: Fibonacci of x, number of fibonacci calls</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">global</span> <span class="n">number_fibonacci_calls</span>
+    <span class="n">number_fibonacci_calls</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    
+
+<span class="n">number_fibonacci_calls</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Calls to Fibonacci functions to get females(12): &#39;</span><span class="p">,</span><span class="n">number_fibonacci_calls</span><span class="p">)</span>
+
+<span class="n">number_fibonacci_calls</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">fibonacci</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Calls to Fibonacci functions to get females(24): &#39;</span><span class="p">,</span> <span class="n">number_fibonacci_calls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="another-classical-demonstration-for-recursive-programming-considers-palindromes">
+<h3>Another classical demonstration for recursive programming considers palindromes.<a class="headerlink" href="#another-classical-demonstration-for-recursive-programming-considers-palindromes" title="Link to this heading">#</a></h3>
+<p>palindrome = a sequence of symbols (such as words) that reads the same forward and backward.</p>
+<p>An example is: “A man, a plan, a canal – Panama”</p>
+<p>In this case, we will consider recursions on strings instead of numbers.</p>
+<p>Write a recursive function ‘is_palindrome’ that takes a string as input and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the string is a palindrome, otherwise <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>The components for the recursive calculation:</p>
+<ul class="simple">
+<li><p>Base cases: string of length 0 or 1 is a palindrome</p></li>
+<li><p>If first character of string matches last character, then it is a palindrome if the middle section is a palindrome</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">string[i]</span></code> : extract character with index <code class="docutils literal notranslate"><span class="pre">i</span></code> from string. Index <code class="docutils literal notranslate"><span class="pre">-1</span></code> means the last character in the string.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">string[1:-1]</span></code> : extract the part of the string from index <code class="docutils literal notranslate"><span class="pre">1</span></code> to the second-to-last index. In other words, we remove a character from the beginning and end of the string.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Before considering a string, we need to make sure it is always lowercase (or uppercase). There is a built-in method for strings lower() that does this job. We also need punctuation removed.</span>
+<span class="c1"># I have made a function that takes care of that named clean_string_and_convert_to_lowercase. Use it on the string, so it has been cleaned before checking for palindrome.</span>
+
+<span class="k">def</span> <span class="nf">clean_string_and_convert_to_lowercase</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert string to lowercase and removes punctuation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        string (str): input string</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: the cleaned string</span>
+<span class="sd">    &quot;&quot;&quot;</span>        
+    <span class="n">cleaned_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span><span class="p">:</span>
+            <span class="n">cleaned_string</span> <span class="o">+=</span> <span class="n">char</span>
+    <span class="k">return</span> <span class="n">cleaned_string</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your job now is to complete the is_palindrome function</span>
+<span class="c1"># It will be handy to recall what you have learned about boolean operators</span>
+<span class="c1"># Make a print statement inside the function so that you can see the action of your is_palindrome algorithm</span>
+
+<span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks whether a string is a palindrome.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        string (str): string to be checked</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if string is palindrome, else False</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">string</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">string</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">string</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">is_palindrome</span><span class="p">(</span><span class="n">clean_string_and_convert_to_lowercase</span><span class="p">(</span><span class="s2">&quot;Able was I, ere I saw Elba&quot;</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">clean_string_and_convert_to_lowercase</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">is_palindrome</span><span class="p">(</span><span class="n">clean_string_and_convert_to_lowercase</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)),</span> <span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">clean_string_and_convert_to_lowercase</span><span class="p">(</span><span class="s2">&quot;A man, a plan, a canal - Panama&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">is_palindrome</span><span class="p">(</span><span class="n">clean_string_and_convert_to_lowercase</span><span class="p">(</span><span class="s2">&quot;A man, a plan, a canal - Panama&quot;</span><span class="p">)),</span> <span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">clean_string_and_convert_to_lowercase</span><span class="p">(</span><span class="s2">&quot;Able was I, ere I saw Elba&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">is_palindrome</span><span class="p">(</span><span class="n">clean_string_and_convert_to_lowercase</span><span class="p">(</span><span class="s2">&quot;Able was I, ere I saw Elba&quot;</span><span class="p">)),</span> <span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">is_palindrome</span><span class="p">(</span><span class="n">clean_string_and_convert_to_lowercase</span><span class="p">(</span><span class="s2">&quot;Is this a palindrome&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="kc">False</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">clean_string_and_convert_to_lowercase</span><span class="p">(</span><span class="s2">&quot;Is this a palindrome&quot;</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./session3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../session2/2_flowcontrol.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Session 2 - Flow control</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../session4/4_compound_datatypes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Session 4 - Compound data types</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-help-to-get-documentation">Using <code class="docutils literal notranslate"><span class="pre">help()</span></code> to get documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope">Scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion-a-function-calling-itself">Recursion - a function calling itself.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-classical-demonstration-for-recursive-programming-considers-palindromes">Another classical demonstration for recursive programming considers palindromes.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
