@@ -358,7 +358,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docstring-formats">Docstring formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hinting-since-python-3-5">Type hinting (Since Python 3.5)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-help-to-get-documentation">Using <code class="docutils literal notranslate"><span class="pre">help()</span></code> to get documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-and-optional-parameters">Positional and optional parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope">Scope</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion-a-function-calling-itself">Recursion - a function calling itself.</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-classical-demonstration-for-recursive-programming-considers-palindromes">Another classical demonstration for recursive programming considers palindromes.</a></li>
@@ -387,7 +390,7 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="session-3-functions">
 <h1>Session 3 - Functions<a class="headerlink" href="#session-3-functions" title="Permalink to this heading">#</a></h1>
 <p>Today, we are going to practice functions.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="o">&lt;</span><span class="n">arguments</span><span class="o">&gt;</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="o">&lt;</span><span class="n">parameters</span><span class="o">&gt;</span><span class="p">):</span>
     <span class="n">docstring</span>
     <span class="o">&lt;</span><span class="n">codeblock</span><span class="o">&gt;</span>
     <span class="k">return</span> <span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span>
@@ -395,37 +398,49 @@ document.write(`
 </div>
 <p>Remember:</p>
 <ul class="simple">
-<li><p>A docstring just below the definition line. There are several formats, e.g., <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google’s format</a> or</p></li>
+<li><p>A docstring just below the definition line. There are several formats, e.g., <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google style</a> or <a class="reference external" href="https://docs.mindsdb.com/contribute/python-coding-standards">PEP-8 style</a></p></li>
 <li><p>The colon as last character on the definition line</p></li>
 <li><p>Indentation to indicate the code block belonging to that function</p></li>
-<li><p>The function often has a return statement but not always, e.g., if you have a function that only prints</p></li>
+<li><p>The function often has a return statement but not always (e.g., if you have a function that only prints)</p></li>
 </ul>
-<p><strong>A word on docstrings</strong></p>
-<p>To get Visual Studio Code to help autogenerate a docstring template, you can install the extension <code class="docutils literal notranslate"><span class="pre">autoDocstring-python</span> <span class="pre">Docstring</span> <span class="pre">generator</span></code>.
-<a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring">https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring</a></p>
-<p>Keyboard shortcut to get the docstring template:</p>
-<ul class="simple">
-<li><p>Mac: <code class="docutils literal notranslate"><span class="pre">cmd+shift+2</span></code></p></li>
-<li><p>Windows/Linux: <code class="docutils literal notranslate"><span class="pre">ctrl+shift+2</span></code></p></li>
-</ul>
-<p><strong>Remember</strong></p>
-<p>to fill in type hinting before (see type hinting below) or you will have to manually set the data types.</p>
-<p>In Google Docstring format, this is</p>
+<p>You have heard about functions in math. For instance, <code class="docutils literal notranslate"><span class="pre">f(x)</span> <span class="pre">=</span> <span class="pre">3x</span> <span class="pre">+</span> <span class="pre">2</span></code>.</p>
+<p>In Python, this would read</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>and then be called:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># output &quot;8&quot;</span>
+</pre></div>
+</div>
+<section id="docstring-formats">
+<h2>Docstring formats<a class="headerlink" href="#docstring-formats" title="Permalink to this heading">#</a></h2>
+<p>In Google style, a docstring contains three (and sometimes more) sections:</p>
+<ol class="arabic simple">
+<li><p><strong>Description section</strong> - describes the purpose of the function</p></li>
+<li><p><strong>Argument section</strong> - lists and explains input</p></li>
+<li><p><strong>Return section</strong> - lists and explains return values</p></li>
+<li><p><strong>Raises, Examples sections</strong> (we have not covered this)</p></li>
+</ol>
+<p>An example of the Google-style format for a docstring:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Calculates the sum of two numbers.</span>
 
 <span class="sd">    sum = a + b</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        a (float): description of argument variable a</span>
-<span class="sd">        b (int): description of argument variable b</span>
+<span class="sd">        a (float): description of parameter variable a</span>
+<span class="sd">        b (int): description of parameter variable b</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        float: sum of a and b</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p><strong>Type hinting</strong> (Since Python 3.5)</p>
-<p>Python is dynamically typed and does not use explicit declaration of variable types.</p>
+</section>
+<section id="type-hinting-since-python-3-5">
+<h2>Type hinting (Since Python 3.5)<a class="headerlink" href="#type-hinting-since-python-3-5" title="Permalink to this heading">#</a></h2>
+<p>Python is dynamically typed and therefore does not use explicit declaration of variable types.</p>
 <p>This means that you can do things like</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nanna&quot;</span>
 <span class="n">name</span> <span class="o">=</span> <span class="mi">6</span>
@@ -433,7 +448,7 @@ document.write(`
 </div>
 <p>In other words, the same variable (here <code class="docutils literal notranslate"><span class="pre">name</span></code>) can be used for different data types in the same piece of code.
 This is again possible due to the way memory is managed in Python.
-While this gives a lot of flexibilit, it can also be a potential source of issues.</p>
+While this gives a lot of flexibility, it can also be a potential source of errors.</p>
 <p>In an attempt to alleviate this, one can use type hinting.</p>
 <ul class="simple">
 <li><p>Type hinting indicates what data type is expected for a given variable</p></li>
@@ -466,8 +481,8 @@ While this gives a lot of flexibilit, it can also be a potential source of issue
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function that &#39;my_max&#39; that accepts two numbers as parameters and that prints to the screen and returns the larger number. </span>
-<span class="c1"># For this elementary exercise, do not use the built-in function &#39;max()&#39; - just revert to elementary expressions and statements.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function called &#39;my_max&#39; that accepts two numbers as parameters and returns the larger of the two numbers. </span>
+<span class="c1"># For this elementary exercise, do not use the built-in function &#39;max()&#39;</span>
 
 
 <span class="k">def</span> <span class="nf">my_max</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
@@ -482,8 +497,8 @@ While this gives a lot of flexibilit, it can also be a potential source of issue
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">a</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">b</span>
+    
+    <span class="k">return</span> <span class="n">b</span>
 </pre></div>
 </div>
 </div>
@@ -498,7 +513,7 @@ While this gives a lot of flexibilit, it can also be a potential source of issue
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function is_odd that takes a positive integer &#39;i&#39; as input and return True if &#39;i&#39; is odd, otherwise False</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function &#39;is_odd&#39; that takes a positive integer &#39;i&#39; as parameter and returns True if &#39;i&#39; is odd, otherwise False</span>
 
 <span class="k">def</span> <span class="nf">is_odd</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns True if integer is odd</span>
@@ -518,35 +533,6 @@ While this gives a lot of flexibilit, it can also be a potential source of issue
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">is_odd</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">is_odd</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now write the same function without a return statement. Let it just make a print statement print(&#39;without return&#39;)</span>
-
-<span class="k">def</span> <span class="nf">is_odd_without_return</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Args:</span>
-<span class="sd">        i (int): a positive integer</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">remainder</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;without return&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">remainder</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">is_odd_without_return</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">is_odd_without_return</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>without return
-True
 </pre></div>
 </div>
 </div>
@@ -592,280 +578,132 @@ The integer i is even:  20
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function &#39;my_sum&#39; to sum the numbers in a list using a for loop. You can assume that it consists of numbers. Do not use the built-in &#39;sum&#39; function.</span>
-<span class="c1"># Call the function with the test_list_float list as argument and print the result</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now write a function &#39;is_odd_without_return&#39; that does not return anything, but just prints &#39;Is odd&#39; if the number is odd, else prints &quot;Is even&quot;.</span>
 
-<span class="n">test_list_float</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">5.</span><span class="p">,</span><span class="mf">7.</span><span class="p">,</span><span class="mf">3.</span><span class="p">,</span><span class="mf">9.</span><span class="p">,</span><span class="mf">6.</span><span class="p">,</span><span class="mf">2.</span><span class="p">,</span><span class="mf">8.</span><span class="p">,</span><span class="mf">76.</span><span class="p">]</span>
-
-
-<span class="k">def</span> <span class="nf">my_sum</span><span class="p">(</span><span class="n">listofnumbers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span><span class="o">-&gt;</span><span class="nb">float</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the sum of the numbers in a list</span>
-
+<span class="k">def</span> <span class="nf">is_odd_without_return</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Args:</span>
-<span class="sd">        listofnumbers (list[float]): list of numbers (should be either floats or int)</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        float: the sum of the numbers </span>
-<span class="sd">    &quot;&quot;&quot;</span>    
-    <span class="nb">sum</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">listofnumbers</span><span class="p">:</span>
-        <span class="nb">sum</span> <span class="o">+=</span> <span class="n">number</span>
-    <span class="k">return</span> <span class="nb">sum</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">my_sum</span><span class="p">(</span><span class="n">test_list_float</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>117.0
+<span class="sd">        i (int): a positive integer</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is even&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Is odd&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">my_sum</span><span class="p">(</span><span class="n">test_list_float</span><span class="p">)</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="mi">117</span><span class="p">),</span> <span class="n">error_message</span><span class="p">(</span><span class="n">my_sum</span><span class="p">(</span><span class="n">test_list_float</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="mi">117</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">is_odd_without_return</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="kc">None</span><span class="p">,</span> <span class="n">error_message</span><span class="p">(</span><span class="n">is_odd_without_return</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Is odd
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 <section id="using-help-to-get-documentation">
 <h2>Using <code class="docutils literal notranslate"><span class="pre">help()</span></code> to get documentation<a class="headerlink" href="#using-help-to-get-documentation" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Having written the mysum function, try to print its documentation using &#39;help(object)&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Having written the is_odd_without return function, try to print its documentation using &#39;help(object)&#39;</span>
 <span class="c1"># You should use this every time you want to learn more about anything in Python</span>
 
-<span class="n">help</span><span class="p">(</span><span class="n">my_sum</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="n">is_odd_without_return</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function my_sum in module __main__:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function is_odd_without_return in module __main__:
 
-my_sum(listofnumbers: list) -&gt; float
-    Calculates the sum of the numbers in a list
-    
+is_odd_without_return(i: int)
     Args:
-        listofnumbers (list[float]): list of numbers (should be either floats or int)
-    
-    Returns:
-        float: the sum of the numbers
+        i (int): a positive integer
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="positional-and-optional-parameters">
+<h2>Positional and optional parameters<a class="headerlink" href="#positional-and-optional-parameters" title="Permalink to this heading">#</a></h2>
+<p>In all of the examples above, the function parameters have all been <strong>required</strong> parameters, meaning we <strong>must</strong> provide them when we call the function. This is what is referred to as ‘positional’ parameters. There is another type of parameters called <code class="docutils literal notranslate"><span class="pre">optional</span></code> parameters. These are parameters that have a <strong>default</strong> value if not explicitly given.</p>
+<p><strong>Blueprint</strong></p>
+<p>The blueprint of a function with both positional parameters (here, <code class="docutils literal notranslate"><span class="pre">pos1</span></code> and <code class="docutils literal notranslate"><span class="pre">pos2</span></code>) and optional parameters (here, <code class="docutils literal notranslate"><span class="pre">opt1</span></code>and <code class="docutils literal notranslate"><span class="pre">opt2</span></code>) could look like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="p">(</span><span class="n">pos1</span><span class="p">,</span> <span class="n">pos2</span><span class="p">,</span> <span class="n">opt1</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">opt2</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p><strong>Example</strong></p>
+<p>So imagine we have a <code class="docutils literal notranslate"><span class="pre">greetings</span></code> function, we would immediately know that we need to give it a <code class="docutils literal notranslate"><span class="pre">name</span></code> to greet, but the ‘greeting’ or ‘prefix’ could have a default such as ‘hello’.</p>
+<p><strong>First example with positional</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greetings</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span>  <span class="n">name</span><span class="p">)</span>
+
+
+<span class="n">greetings</span><span class="p">(</span><span class="s2">&quot;Nanna&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello&quot;</span><span class="p">)</span> <span class="c1"># output &quot;Hello Nanna&quot;</span>
+</pre></div>
+</div>
+<p>But now instead, let us add a ‘default value’ to the <code class="docutils literal notranslate"><span class="pre">message</span></code>. We do so by adding <code class="docutils literal notranslate"> <span class="pre">=</span> <span class="pre">&lt;default</span> <span class="pre">value&gt;</span></code> after the input parameter (and type hint).</p>
+<p><strong>Example with optional message</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greetings</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span>  <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>That way, we do not <strong>have</strong> to give the <code class="docutils literal notranslate"><span class="pre">message</span></code> parameter, since it has a value and will not be ‘undefined’.</p>
+<p>So let us call the function with just the name “Nanna”:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greetings</span><span class="p">(</span><span class="s2">&quot;Nanna&quot;</span><span class="p">)</span> <span class="c1"># output &quot;Hello Nanna&quot;</span>
+</pre></div>
+</div>
+<p>As you can see, if we do not override the <code class="docutils literal notranslate"><span class="pre">message</span></code>, we get the default value of <code class="docutils literal notranslate"><span class="pre">Hello</span></code>.</p>
+<p>A function can have any number of position and default parameters, the only <strong>requirement</strong> is that positional requirements are before the default parameters.</p>
+<p><strong>Now lets override it:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greetings</span><span class="p">(</span><span class="s2">&quot;Nanna&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Dear&quot;</span><span class="p">)</span> <span class="c1"># output &quot;Dear Nanna&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Play around with this.</span>
+<span class="k">def</span> <span class="nf">greetings</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Greets &#39;name&#39; with a generic greeting</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        name (str): Name of the person to greet</span>
+<span class="sd">        message (str, optional): The greeting to use</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span>  <span class="n">name</span><span class="p">)</span>
+
+<span class="n">greetings</span><span class="p">(</span><span class="s2">&quot;Nanna&quot;</span><span class="p">)</span>
+<span class="n">greetings</span><span class="p">(</span><span class="s2">&quot;Nanna&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Dear&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello Nanna
+Dear Nanna
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here applied on &#39;str&#39;</span>
-
-<span class="n">help</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let us also see the help for this function!</span>
+<span class="n">help</span><span class="p">(</span><span class="n">greetings</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on class float in module builtins:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function greetings in module __main__:
 
-class float(object)
- |  float(x=0, /)
- |  
- |  Convert a string or number to a floating point number, if possible.
- |  
- |  Methods defined here:
- |  
- |  __abs__(self, /)
- |      abs(self)
- |  
- |  __add__(self, value, /)
- |      Return self+value.
- |  
- |  __bool__(self, /)
- |      self != 0
- |  
- |  __ceil__(self, /)
- |      Return the ceiling as an Integral.
- |  
- |  __divmod__(self, value, /)
- |      Return divmod(self, value).
- |  
- |  __eq__(self, value, /)
- |      Return self==value.
- |  
- |  __float__(self, /)
- |      float(self)
- |  
- |  __floor__(self, /)
- |      Return the floor as an Integral.
- |  
- |  __floordiv__(self, value, /)
- |      Return self//value.
- |  
- |  __format__(self, format_spec, /)
- |      Formats the float according to format_spec.
- |  
- |  __ge__(self, value, /)
- |      Return self&gt;=value.
- |  
- |  __getattribute__(self, name, /)
- |      Return getattr(self, name).
- |  
- |  __getnewargs__(self, /)
- |  
- |  __gt__(self, value, /)
- |      Return self&gt;value.
- |  
- |  __hash__(self, /)
- |      Return hash(self).
- |  
- |  __int__(self, /)
- |      int(self)
- |  
- |  __le__(self, value, /)
- |      Return self&lt;=value.
- |  
- |  __lt__(self, value, /)
- |      Return self&lt;value.
- |  
- |  __mod__(self, value, /)
- |      Return self%value.
- |  
- |  __mul__(self, value, /)
- |      Return self*value.
- |  
- |  __ne__(self, value, /)
- |      Return self!=value.
- |  
- |  __neg__(self, /)
- |      -self
- |  
- |  __pos__(self, /)
- |      +self
- |  
- |  __pow__(self, value, mod=None, /)
- |      Return pow(self, value, mod).
- |  
- |  __radd__(self, value, /)
- |      Return value+self.
- |  
- |  __rdivmod__(self, value, /)
- |      Return divmod(value, self).
- |  
- |  __repr__(self, /)
- |      Return repr(self).
- |  
- |  __rfloordiv__(self, value, /)
- |      Return value//self.
- |  
- |  __rmod__(self, value, /)
- |      Return value%self.
- |  
- |  __rmul__(self, value, /)
- |      Return value*self.
- |  
- |  __round__(self, ndigits=None, /)
- |      Return the Integral closest to x, rounding half toward even.
- |      
- |      When an argument is passed, work like built-in round(x, ndigits).
- |  
- |  __rpow__(self, value, mod=None, /)
- |      Return pow(value, self, mod).
- |  
- |  __rsub__(self, value, /)
- |      Return value-self.
- |  
- |  __rtruediv__(self, value, /)
- |      Return value/self.
- |  
- |  __sub__(self, value, /)
- |      Return self-value.
- |  
- |  __truediv__(self, value, /)
- |      Return self/value.
- |  
- |  __trunc__(self, /)
- |      Return the Integral closest to x between 0 and x.
- |  
- |  as_integer_ratio(self, /)
- |      Return integer ratio.
- |      
- |      Return a pair of integers, whose ratio is exactly equal to the original float
- |      and with a positive denominator.
- |      
- |      Raise OverflowError on infinities and a ValueError on NaNs.
- |      
- |      &gt;&gt;&gt; (10.0).as_integer_ratio()
- |      (10, 1)
- |      &gt;&gt;&gt; (0.0).as_integer_ratio()
- |      (0, 1)
- |      &gt;&gt;&gt; (-.25).as_integer_ratio()
- |      (-1, 4)
- |  
- |  conjugate(self, /)
- |      Return self, the complex conjugate of any float.
- |  
- |  hex(self, /)
- |      Return a hexadecimal representation of a floating-point number.
- |      
- |      &gt;&gt;&gt; (-0.1).hex()
- |      &#39;-0x1.999999999999ap-4&#39;
- |      &gt;&gt;&gt; 3.14159.hex()
- |      &#39;0x1.921f9f01b866ep+1&#39;
- |  
- |  is_integer(self, /)
- |      Return True if the float is an integer.
- |  
- |  ----------------------------------------------------------------------
- |  Class methods defined here:
- |  
- |  __getformat__(typestr, /) from builtins.type
- |      You probably don&#39;t want to use this function.
- |      
- |        typestr
- |          Must be &#39;double&#39; or &#39;float&#39;.
- |      
- |      It exists mainly to be used in Python&#39;s test suite.
- |      
- |      This function returns whichever of &#39;unknown&#39;, &#39;IEEE, big-endian&#39; or &#39;IEEE,
- |      little-endian&#39; best describes the format of floating point numbers used by the
- |      C type named by typestr.
- |  
- |  __set_format__(typestr, fmt, /) from builtins.type
- |      You probably don&#39;t want to use this function.
- |      
- |        typestr
- |          Must be &#39;double&#39; or &#39;float&#39;.
- |        fmt
- |          Must be one of &#39;unknown&#39;, &#39;IEEE, big-endian&#39; or &#39;IEEE, little-endian&#39;,
- |          and in addition can only be one of the latter two if it appears to
- |          match the underlying C reality.
- |      
- |      It exists mainly to be used in Python&#39;s test suite.
- |      
- |      Override the automatic determination of C-level floating point type.
- |      This affects how floats are converted to and from binary strings.
- |  
- |  fromhex(string, /) from builtins.type
- |      Create a floating-point number from a hexadecimal string.
- |      
- |      &gt;&gt;&gt; float.fromhex(&#39;0x1.ffffp10&#39;)
- |      2047.984375
- |      &gt;&gt;&gt; float.fromhex(&#39;-0x1p-1074&#39;)
- |      -5e-324
- |  
- |  ----------------------------------------------------------------------
- |  Static methods defined here:
- |  
- |  __new__(*args, **kwargs) from builtins.type
- |      Create and return a new object.  See help(type) for accurate signature.
- |  
- |  ----------------------------------------------------------------------
- |  Data descriptors defined here:
- |  
- |  imag
- |      the imaginary part of a complex number
- |  
- |  real
- |      the real part of a complex number
+greetings(name: str, message: str = &#39;Hello&#39;)
+    Greets &#39;name&#39; with a generic greeting
+    
+    Args:
+        name (str): Name of the person to greet
+        message (str, optional): The greeting to use
 </pre></div>
 </div>
 </div>
@@ -893,7 +731,7 @@ class float(object)
 <span class="c1"># As described above, Python will treat these as two separate variables by their different values when printing them.</span>
 
 <span class="k">def</span> <span class="nf">add_one</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds one to the input argument x and print its value</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds one to the input parameter x and print its value</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        x (int): input number</span>
@@ -922,7 +760,7 @@ Value of x outside function after function call:  5
 <span class="c1"># If we instead reassign the value of x with the output of the function, i</span>
 
 <span class="k">def</span> <span class="nf">add_one_with_return</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds one to the input argument x and returns the new value</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds one to the input parameter x and returns the new value</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        x (int): input value </span>
@@ -960,7 +798,7 @@ Value of x outside function after function call but now reassigning x to the out
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now to an example, where we try to access a variable outside scope. </span>
-<span class="c1"># Here we not pass in x as argument of the function. Rather x is defined outside the function (global variable), which means that Python can access its value inside the function BUT NOT modify it.</span>
+<span class="c1"># Here we not pass in x as parameter of the function. Rather x is defined outside the function (global variable), which means that Python can access its value inside the function BUT NOT modify it.</span>
 <span class="c1"># To modify it, we would have to declare it a global variable inside the function</span>
 
 <span class="k">def</span> <span class="nf">show_x</span><span class="p">():</span>
@@ -980,13 +818,13 @@ Value of x outside function after function call but now reassigning x to the out
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">UnboundLocalError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">17</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">14</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># declare global variable</span>
 <span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="ne">---&gt; </span><span class="mi">14</span> <span class="n">show_x</span><span class="p">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-<span class="nn">Cell In[17], line 8,</span> in <span class="ni">show_x</span><span class="nt">()</span>
+<span class="nn">Cell In[16], line 8,</span> in <span class="ni">show_x</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">show_x</span><span class="p">():</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Prints value of x, adds one to it and print it again</span>
 <span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd">     &quot;&quot;&quot;</span>
@@ -1132,7 +970,7 @@ Check out:</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function fibonacci and use it recursively to compute the remaining numbers to fill in the table.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write a function &#39;fibonacci&#39; and use it recursively to compute the remaining numbers to fill in the table.</span>
 <span class="c1"># Remember the base cases given in the table, namely: females(0) = 1 and females(1) = 1</span>
 
 <span class="k">def</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
@@ -1167,7 +1005,8 @@ Check out:</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s see what this looks like when plotted.</span>
-<span class="c1"># Use matplotlib.pyplot to plot the number of females over the first two years</span>
+<span class="c1"># Here we use matplotlib.pyplot to plot the number of females over the first two years</span>
+<span class="c1"># You will learn about this later</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
@@ -1199,7 +1038,7 @@ Check out:</p></li>
 <span class="sd">    Returns:</span>
 <span class="sd">        int: Fibonacci of x, number of fibonacci calls</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
+    
     <span class="k">global</span> <span class="n">number_fibonacci_calls</span>
     <span class="n">number_fibonacci_calls</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -1365,7 +1204,10 @@ Check out:</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docstring-formats">Docstring formats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#type-hinting-since-python-3-5">Type hinting (Since Python 3.5)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-help-to-get-documentation">Using <code class="docutils literal notranslate"><span class="pre">help()</span></code> to get documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-and-optional-parameters">Positional and optional parameters</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope">Scope</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursion-a-function-calling-itself">Recursion - a function calling itself.</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#another-classical-demonstration-for-recursive-programming-considers-palindromes">Another classical demonstration for recursive programming considers palindromes.</a></li>
