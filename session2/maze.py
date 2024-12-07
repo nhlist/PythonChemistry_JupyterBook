@@ -9,6 +9,7 @@ You will later see examples using classes, and why these
 should have been used instead. That said, feel free to be inspired
 by other Python tricks in this file :-)
 """
+
 import numpy as np
 import matplotlib.pyplot as plt
 import copy
@@ -196,5 +197,3 @@ def move_forward():
     POSITION = new_position
     # Update maze value
     MAZE[POSITION[0], POSITION[1]] = 4
-
-
